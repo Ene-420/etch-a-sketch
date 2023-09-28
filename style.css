@@ -1,0 +1,75 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    min-height: 100vh;
+}
+
+.container{
+    
+    display: flex;
+    min-height: 100vh;
+    justify-content: space-evenly;
+}
+
+.effects-buttons{
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: center;
+    gap: 10px;
+    margin: 30px;
+    
+}
+.fill-button, .erase-button, .random-button{
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    /* background-color: none; */
+    
+}
+
+/* .fill-button:active, .erase-button:active{
+    color: blue;
+} */
+
+.content{
+    padding: 8px;
+    height: 660px;
+    width: 420px;
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px grey solid;
+    border-radius: 7px;
+    align-content: center;
+    align-items: center;
+    justify-content: center;    
+}
+
+.card{
+    width: 16px;
+    height: 16px;
+    /* flex: 1 1 auto; */
+    
+    /* flex-grow: 1; */
+    border: .7px rgb(134, 137, 139) solid;
+}
+
+/* .card:hover{
+    background-color: none;
+} */
+
+.hover{
+    background-color:aqua
+}
+
+.noHover{
+    pointer-events: none;
+}
+
+.erase-hover{
+    background-color: transparent;
+}
