@@ -2,16 +2,25 @@ const container = document.querySelector('.content');
 const fillButton = document.querySelector('.fill-button');
 const eraseButton = document.querySelector('.erase-button');
 const randomButton = document.querySelector('.random-button');
+const colorPicker = document.querySelector('#color-picker');
 let isActive = false;
 
 
-createGrid();
+createGrid(16);
 
-function createGrid( cellNo = 1000){
+function createGrid( cellNo){
     for(let i=0; i < cellNo; i++){
-        const div = document.createElement('div');
-        div.classList.add('card');
-        container.appendChild(div);
+        const cardContainer = document.createElement('div');
+        cardContainer.classList.add('card-container');
+
+        for(let x =0; x < cellNo; x++){
+            const card = document.createElement('div');
+            card.classList.add('card');
+            cardContainer.appendChild(card);
+        }
+
+        
+        container.appendChild(cardContainer);
     }
 }
 
@@ -27,7 +36,7 @@ fillButton.addEventListener('click', () =>{
         cards.forEach((card) =>{
             card.classList.remove('noHover')
             card.addEventListener('mousemove', () =>{
-                card.classList.add('hover');                
+                card.classList.add('hover');
             });
         });
     }
@@ -77,6 +86,18 @@ randomButton.addEventListener('click', () =>{
         deactivateButton(randomButton);
     }
 });
+
+colorPicker.addEventListener("input", changeColor, false);
+colorPicker.addEventListener("change", changeColor, false);
+
+
+function changeColor(event){
+    document.querySelectorAll('.card').forEach((card) =>{
+        if(card.classList.contains('hover')){
+            card.style.backgroundColor= event.target.value;
+        }
+    });
+}
 
 
 function activateButton(button){
